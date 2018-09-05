@@ -1,2 +1,2 @@
 # CE-Playground
-Ill flesh this out later im sure lol
+Repo for our CRTC Group, make sure to get a github account if you dont already, and email me with the name
