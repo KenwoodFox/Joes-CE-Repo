@@ -1,0 +1,3 @@
+#define LINE_TRACKER_PORT 1
+#define DRIVE_MOTOR_LEFT 1
+#define DRIVE_MOTOR_RIGHT 2
