@@ -1,0 +1,4 @@
+void myExampleVoid()
+{
+	//my code
+}
