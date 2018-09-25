@@ -1,4 +1,0 @@
-void myExampleVoid()
-{
-	//my code
-}
