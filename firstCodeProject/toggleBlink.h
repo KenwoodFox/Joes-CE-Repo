@@ -1,23 +1,18 @@
 void toggleBlink() //This function will toggle the flashing of an LED
 {
-	int toggleBlink = false;
+	/*delete me!!*/int blinkState = true;
 
 	if(SensorValue(bumpSwitch) == true) //if you push the bump switch..
 	{
-		if(toggleBlink == false) //..and the toggle is off...
+		if(blinkState == false) //..and the toggle is off...
 		{
-			toggleBlink = true; //turn the toggle on.
+			blinkState = true; //turn the toggle on.
+			delay(30);
 		}
 		else //..and the toggle is on...
 		{
-			toggleBlink = false; //turn the toggle off.
+			blinkState = false; //turn the toggle off.
+			delay(30);
 		}
-	}
-
-	if(toggleBlink == true) //If you are toggled on...
-	{
-		turnLEDOn(LEDOne);
-		delay(1000); //...do the code
-		turnLEDOff(LEDOne);
 	}
 }
