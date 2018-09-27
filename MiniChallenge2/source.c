@@ -27,18 +27,20 @@ task driveTask() //Tasks need to be defined before the task main, as they will c
 			delay(20);
 		}
 	}
+	stopMotor(starboardMotor);
+	stopMotor(portMotor); //stop motors
+
+	stopTask(driveTask);
 }
 
 task main()
 {
 	//things to run once:
 	motorInit();
-
-	//things to run over and over
-	while(true){
-		startTask(blink, 5);
-		startTask(driveTask, 10);
-
-		delay(2000);
+	startTask(driveTask, 10);
+	startTask(blink, 5);
+	while(true)
+	{
+		delay(2000); //alotocate all time for task CPU
 	}
 }
