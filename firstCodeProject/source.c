@@ -7,14 +7,19 @@
 
 #include "toggleBlink.h" //Blink on/off command
 #include "runMotors.h" //motor drive command
+#include "blink.h" //include the blink subroutine
 
 int operation = true;
+//int blinkState = false;
 
-task main()
+task main() //This task called upon robot start
 {
-	while(operation == true)
+	startTask(runMotors); //Start the motors Subroutine
+	startTask(blink); //Start the blink subroutine
+
+	while(operation == true) //While there are no critical opperations
 	{
-		toggleBlink();
-		runMotors();
+		toggleBlink(); //run the blink routine
+		delay(10);
 	}
 }

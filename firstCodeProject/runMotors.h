@@ -1,11 +1,7 @@
-void runMotors()
+task runMotors()
 {
-	//int runSpeed = 88; //the speed the motors will run
-
-	//turn one revolution
-	delay(2000);
-	if(limitSwitch != true)
-	{
-		//setMultipleMotors(0, portMotor, starboardMotor); //stop
-	}
+	/*turn one revolutoon
+	wait two seconds
+	reverse untill the bump switch is pressed
+	*/
 }
