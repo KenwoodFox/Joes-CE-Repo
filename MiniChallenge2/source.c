@@ -35,9 +35,9 @@ task driveTask() //Tasks need to be defined before the task main, as they will c
 
 task main()
 {
+	startTask(blink, 5); //begin the blinking daemen
 	motorInit(); //init the motors with the startup sequence
 	startTask(driveTask, 10); //begin the drivetask daemen
-	startTask(blink, 5); //begin the blinking daemen
 	while(true) //do forever...
 	{
 		delay(2000); //alotocate all CPUT time for tasks
