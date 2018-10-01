@@ -9,6 +9,18 @@
 #include "runMotors.h" //motor drive command
 #include "blink.h" //include the blink subroutine
 
+/*
+Group: Joe, %NAME%, %NAME%, %NAME%
+Class: Computer Engineering, block C
+Teacher: Mrs. Marcou
+GitHub: https://github.com/KenwoodFox/CE-Playground
+
+psudo code:
+
+notes:
+Looks good to me doc
+*/
+
 int operation = true;
 //int blinkState = false;
 
