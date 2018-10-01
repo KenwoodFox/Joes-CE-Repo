@@ -55,6 +55,6 @@ task main()
 	startTask(driveTask, 10); //begin the drivetask daemen
 	while(true) //do forever...
 	{
-		delay(2000); //alotocate all CPUT time for tasks
+		delay(2000); //alotocate all CPU time for tasks
 	}
 }
