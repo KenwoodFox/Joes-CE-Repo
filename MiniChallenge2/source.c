@@ -8,6 +8,21 @@
 #include "flash.c" //Include the blink task, that allows us to run a blink thread
 #include "motorInit.c" //motorInit.c contains a motor init void,
 
+/*
+	Group: Joe, %NAME%, %NAME%, %NAME%
+	Class: Computer Engineering, block C
+	Teacher: Mrs. Marcou
+	GitHub: https://github.com/KenwoodFox/CE-Playground
+
+	Psudo Code:
+		Program your LED to blink on/off every second when the bump switch is pressed
+	program the wheels to turn cw for 1 revolution, wait 2 seconds, then reverse until the limit switch is pressed
+	stop LED blinking when bump switch is pressed again
+
+	notes:
+		Looks good to me doc
+*/
+
 task driveTask() //Tasks need to be defined before the task main, as they will compile in order
 {
 	int trip = false; //this trip value determines if the limit switch has been triggered, if true, the motor reverse drive will not run, this allows us to shut on and off the motors in a situation other than just the limit switch
