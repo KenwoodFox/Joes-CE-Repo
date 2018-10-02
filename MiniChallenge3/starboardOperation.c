@@ -1,6 +1,6 @@
 task starboardOperation()
 {
-	int MAGICREVO = 1200;
+	int MAGICREVO = 1200; //magic revo is a magical time based integer and is not actualy reading the rotation of the motors
 
 	while(true)
 	{
@@ -17,7 +17,7 @@ task starboardOperation()
 		}
 		else //if the switch is pressed
 		{
-			stopMotor(starboardMotor);
+			stopMotor(starboardMotor); //stop the motor
 		}
 	}
 }

@@ -9,7 +9,7 @@ task portOperation()
 		}
 		else //if the switch is not pressed
 		{
-			stopMotor(portMotor);
+			stopMotor(portMotor); //stop the motor
 		}
 	}
 }

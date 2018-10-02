@@ -25,24 +25,24 @@
 		Looks good to me doc
 */
 
-int error = 0;
+int error = 0; //the error variable here can be changed to throw during an adverse condition
 
 task main()
 {
-	startTask(portOperation);
+	startTask(portOperation); //start the two task threads
 	startTask(starboardOperation);
-	while(error < 1)
+	while(error < 1) //as long as no errors are thrown
 	{
-		if(SensorValue(ultrasonic) > 4)
+		if(SensorValue(ultrasonic) > 4) //In pragma we set our ultrasonic to read inches, so imputting 4 here is equal to four inches
 		{
-			turnLEDOn(LEDOne);
+			turnLEDOn(LEDOne); //turn on the LED if in range, and stop the servo
 			stopMotor(servo);
 		}
-		else
+		else //while not in range
 		{
-			turnLEDOff(LEDOne);
+			turnLEDOff(LEDOne); //turn the led off and the servo on
 			startMotor(servo, 90);
 		}
-		delay(30);
+		delay(30); //altocate CPU time for other tasks
 	}
 }
