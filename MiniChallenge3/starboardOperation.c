@@ -9,8 +9,11 @@ task starboardOperation()
 		{
 			startMotor(starboardMotor, 80); //start the motor moving forward
 			delay(MAGICREVO); //delay for one rotation
-			startMotor(starboardMotor, -80); //and backwards
-			delay(MAGICREVO); //delay for one rotation
+			if(SensorValue(limitSwitch) == true)
+			{
+				startMotor(starboardMotor, -80); //and backwards
+				delay(MAGICREVO); //delay for one rotation
+			}
 		}
 		else //if the switch is pressed
 		{
