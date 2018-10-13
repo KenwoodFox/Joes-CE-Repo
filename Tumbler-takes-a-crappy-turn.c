@@ -22,16 +22,14 @@ While loop continues and waits for bump switch value to change from <bumpSwitch 
 */
 
 void fullSpeedAhead()
-{ /* I'm much too lazy to write out four lines of code every time I want this damn robot to go forward and Marcou won't let me
-	mix Natural and Cortex because "iT's nOt NiCe tO tHE CoMpiLeR" */
+{ // I'm much too lazy to write out four lines of code every time I want this damn robot to go forward 
 	startMotor(starBoardBACK, 127);
 	startMotor(starBoardFWD, 127);
 	startMotor(portFWD, -127);
 	startMotor(portBACK, -127);
 }
 void fullStop()
-{ /* I'm much too lazy to write out four lines of code every time I want this damn robot to stop and
-	Marcou won't let me mix Natural and Cortex because "iT's nOt NiCe tO tHE CoMpiLeR" */
+{ // I'm much too lazy to write out four lines of code every time I want this damn robot to stop 
 	stopMotor(starBoardBACK);
 	stopMotor(starBoardFWD);
 	stopMotor(portFWD);
@@ -43,7 +41,7 @@ task main()
 
 	while(true){ /* I found that when I didn't use the while loop,
 		the code ran through faster than the bumpswitch could be pressed for the if statement.
-		Even though Mrs. Marcou hates my lust for while loops, this time using one is necessary
+		Even though Marcou hates my lust for while loops, this time using one is necessary
 		I chose the while loop so that my code would be continually cycled through until the value of the bump switch changes. */
 
 		if(SensorValue[bumpSwitch] == 1){ //If the bump switch is pressed
