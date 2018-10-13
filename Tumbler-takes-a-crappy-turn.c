@@ -40,13 +40,13 @@ task main()
 
 	while(true){ /* I found that when I didn't use the while loop,
 		the code ran through faster than the bumpswitch could be pressed for the if statement.
-		Even though Mrs. Marcou hates my lust for while loops, this time using one is necessary
+		Even though Marcou hates my lust for while loops, this time using one is necessary
 		I chose the while loop so that my code would be continually cycled through until the value of the bump switch changes. */
 		if(SensorValue[bumpSwitch] == 1){ //If the bump switch is pressed
 			fullSpeedAhead(); //My function because I'm too lazy to type multiple "startMotor" statements
 			delay(10000); /* Allows the bot to move forwards for 10sec but actually runs for 11sec
 			because the second that the bump switch is pressed in is counted as well */
-			pointTurn(left, 63); /* I have no clue how this'll turn because I don't have any encoders on
+			pointTurn(left, 63); /* Idk how this'll turn because I don't have any encoders on
 			to determine the cyclage count so this is just trial and error */
 			delay(5000); /* Delays for 5sec to allow the robot to turn
 			(Once again, I have no clue whether or not this is accurate this timing is only a placeholder) */
