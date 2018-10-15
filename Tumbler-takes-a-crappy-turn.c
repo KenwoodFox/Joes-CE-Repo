@@ -8,7 +8,7 @@ Project Title: Tumbler Takes A Crappy Turn
 Team Members: Grennon
 Date: 10/13/2018
 Section: Block C
-Github: https://github.com/KenwoodFox/Joes-CE-Repo/blob/master/
+Github: https://raw.githubusercontent.com/KenwoodFox/Joes-CE-Repo/master/Tumbler-takes-a-crappy-turn.c
 
 Task Description:
 My aim was just to make the tumbler bot turn left (port) 90 degrees sans Encoder
