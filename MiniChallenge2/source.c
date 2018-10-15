@@ -23,7 +23,7 @@
 		Looks good to me doc
 */
 
-task driveTask() //Tasks need to be defined before the task main, as they will compile in order
+task driveTask() //custom need to be defined before the task main, as they will compile in order, using #include, does compile before task main
 {
 	int trip = false; //this trip value determines if the limit switch has been triggered, if true, the motor reverse drive will not run, this allows us to shut on and off the motors in a situation other than just the limit switch
 
@@ -50,9 +50,9 @@ task driveTask() //Tasks need to be defined before the task main, as they will c
 
 task main()
 {
-	startTask(blink, 5); //begin the blinking daemen
-	motorInit(); //init the motors with the startup sequence
-	startTask(driveTask, 10); //begin the drivetask daemen
+	startTask(blink, 5); //begin the blinking daemen with priority 5
+	motorInit(); //init the motors with the startup sequence, the startup sequence is a void, not a task, and runs only once using the same cycle task main that started it
+	startTask(driveTask, 10); //begin the drivetask daemen with priority 10
 	while(true) //do forever...
 	{
 		delay(2000); //alotocate all CPU time for tasks
