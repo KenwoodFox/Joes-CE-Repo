@@ -10,7 +10,7 @@
 
 task main()
 {
-	while(bumpSwitch != true) //while bumpswitch is not pressed
+	while(SensorValue[bumpSwitch] != true) //while bumpswitch is not pressed
 	{
 		delay(10); //wait 10ms
 	}
