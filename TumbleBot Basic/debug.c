@@ -24,9 +24,9 @@ void portDriveTrain(float speed) //function to drive each of the port wheels usi
 
 //this function by joe, remeber to include my drivetrain.c before including this file
 
-void easyGas(int targetSpeed, int accelValue, int accelDirection)
+void easyGas(int targetSpeed, int accelValue, float accelDirection)
 {
-	int speed = 0; //arb value for the current speed
+	float speed = 0; //arb value for the current speed
 
 	while(speed < targetSpeed) //while you are not at target speed
 	{
@@ -39,7 +39,7 @@ void easyGas(int targetSpeed, int accelValue, int accelDirection)
 
 task main()
 {
-	easyGas(100, 5, 0.5); //accelerate at a rate of 0.5 every 5ms to 100 pwm
+	easyGas(100, 10, 0.5); //accelerate at a rate of 0.5 every 5ms to 100 pwm
 	delay(4000); //magic delay for the leangth of the
-	easyGas(100, 5, -0.5);	//accelerate at a rate of -0.5 every 5ms to 100 pwm
+	easyGas(100, 20, -0.5);	//accelerate at a rate of -0.5 every 5ms to 100 pwm
 }
