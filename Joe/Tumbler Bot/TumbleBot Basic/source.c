@@ -30,7 +30,7 @@ task main()
 		i++;
 	}
 
-	easyGas(0, 100, 5, 1); //Accelerate from 0, to 100, in time increments of 5ms, forward.
-	delay(4000); //magic delay for the leangth of the
-	easyGas(100, 0, 5, -1);	//Accelerate from 100, to 0, in time increments of 5ms, backward.
+	easyGas(0, 100, 10, 1); //Accelerate from 0, to 100, in time increments of 5ms, forward.
+	delay(1100); //magic delay for the leangth of the
+	easyGas(100, 0, 15, -1);	//Accelerate from 100, to 0, in time increments of 5ms, backward.
 }
