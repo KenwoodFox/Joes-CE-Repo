@@ -13,24 +13,25 @@ int i = 0;
 
 task main()
 {
+	//Startup notifier
 	while(SensorValue[bumpSwitch] != true) //while bumpswitch is not pressed
 	{
 		delay(50); //wait 50ms
-		turnLEDOn(LED);
+		SensorValue[LED] = true; //Blink LED
 		delay(50);
-		turnLEDOff(LED);
+		SensorValue[LED] = false;
 	}
 
-	while( i < 6)
+	while( i < 6) //runs after bump switch is pressed
 	{
+		delay(100); //wait 100ms
+		SensorValue[LED] = true; //slow Blink
 		delay(100);
-		turnLEDOn(LED);
-		delay(100);
-		turnLEDOff(LED);
+		SensorValue[LED] = false;
 		i++;
 	}
 
-	easyGas(0, 100, 10, 1); //Accelerate from 0, to 100, in time increments of 5ms, forward.
+	easyGas(0, 100, 10, 1); //Accelerate from 0, to 100, in time increments of 10ms, forward.
 	delay(1258); //magic delay for the leangth of the
-	easyGas(100, 0, 15, -1);	//Accelerate from 100, to 0, in time increments of 5ms, backward.
+	easyGas(100, 0, 15, -1);	//Accelerate from 100, to 0, in time increments of 15ms, backward.
 }
