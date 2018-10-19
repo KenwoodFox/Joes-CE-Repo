@@ -9,15 +9,28 @@
 #include "drivetrain.h" //include the drivetrain header
 #include "easyGas.h" //include the easygas header
 #include "init.h" //Include init.h, init.h also includes void startup();
-#include "tankSpin.h"
+#include "tankSpin.h" //include chemai's turn header
+#include "segment.h" //include the segment command
 
 void unamedMaze()
 {
-
+	segment(100); //Segment forward
+	tankSpin(-90); //make a left turn
+	segment(100); //Segment forward
+	tankSpin(90); //make a right turn
+	segment(100); //Segment forward
+	tankSpin(90); //make a right turn
+	segment(50); //Segment forward
+	tankSpin(90); //make a right turn
+	segment(50); //Segment forward
 }
 
 
 task main()
 {
-	unamedMaze();
+	while(true)
+	{
+		startup();
+		unamedMaze();
+	}
 }

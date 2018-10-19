@@ -1,4 +1,4 @@
-void tankSpin(float targetRotation, int direction)
+void tankSpin(float targetRotation)
 {
 	//Chemai please fix this!
 }
