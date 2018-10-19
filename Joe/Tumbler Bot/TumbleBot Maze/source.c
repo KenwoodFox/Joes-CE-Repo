@@ -14,20 +14,21 @@
 
 void unamedMaze()
 {
-	segment(50); //Segment forward
+	//segment(400); //Segment forward
 	tankSpin(90); //make a left turn
-	segment(10); //Segment forward
-	tankSpin(90); //make a right turn
-	segment(50); //Segment forward
-	tankSpin(-90); //make a right turn
-	segment(10); //Segment forward
-	tankSpin(-90); //make a right turn
-	segment(50); //Segment forward
+	//segment(110); //Segment forward
+	//tankSpin(90); //make a right turn
+	//segment(150); //Segment forward
+	//tankSpin(-90); //make a right turn
+	//segment(110); //Segment forward
+	//tankSpin(-90); //make a right turn
+	//segment(150); //Segment forward
 }
 
 
 task main()
 {
+
 	while(true)
 	{
 		startup();
