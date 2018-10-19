@@ -51,7 +51,8 @@ task main()
 		stopMotor(Frontleft);
 		stopMotor(Frontright);
 
-		turnright(x, y);
+		tankDrive(4); //in seconds
+		tankDrive(2);
 
 	}
 }

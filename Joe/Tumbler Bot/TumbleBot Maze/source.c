@@ -14,14 +14,14 @@
 
 void unamedMaze()
 {
-	segment(100); //Segment forward
-	tankSpin(-90); //make a left turn
-	segment(100); //Segment forward
-	tankSpin(90); //make a right turn
-	segment(100); //Segment forward
+	segment(50); //Segment forward
+	tankSpin(90); //make a left turn
+	segment(10); //Segment forward
 	tankSpin(90); //make a right turn
 	segment(50); //Segment forward
-	tankSpin(90); //make a right turn
+	tankSpin(-90); //make a right turn
+	segment(10); //Segment forward
+	tankSpin(-90); //make a right turn
 	segment(50); //Segment forward
 }
 

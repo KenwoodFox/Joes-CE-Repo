@@ -1,4 +1,80 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void tankSpin(float targetRotation)
 {
-	//Chemai please fix this!
+	int tune = 1000; ///change me!
+	int robotSpeed = 50;
+
+
+	if(targetRotation == -90)
+	{
+		starboardDriveTrain(robotSpeed);
+		portDriveTrain(robotSpeed * -1);
+		delay(tune);
+	}
+	if(targetRotation == 90)
+	{
+		starboardDriveTrain(robotSpeed * -1);
+		portDriveTrain(robotSpeed);
+		delay(tune);
+	}
+	starboardDriveTrain(0);
+	portDriveTrain(0);
+
+
+	//stop all moitotrsz
 }
