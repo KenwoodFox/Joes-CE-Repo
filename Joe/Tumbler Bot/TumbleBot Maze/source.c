@@ -12,17 +12,30 @@
 #include "tankSpin.h" //include chemai's turn header
 #include "segment.h" //include the segment command
 
+void debug()
+{
+	tankSpin(90);
+	delay(600);
+	tankSpin(-90);
+}
+
 void unamedMaze()
 {
-	//segment(400); //Segment forward
+	segment(1250); //Segment forward
 	tankSpin(90); //make a left turn
-	//segment(110); //Segment forward
-	//tankSpin(90); //make a right turn
-	//segment(150); //Segment forward
-	//tankSpin(-90); //make a right turn
-	//segment(110); //Segment forward
-	//tankSpin(-90); //make a right turn
-	//segment(150); //Segment forward
+	backup();
+
+	segment(680); //Segment forward
+	tankSpin(90); //make a right turn
+	backup();
+
+	segment(1200); //Segment forward
+	tankSpin(-90); //make a right turn
+	segment(680); //Segment forward
+	tankSpin(-90); //make a right turn
+	backup();
+
+	segment(150); //Segment forward
 }
 
 
@@ -33,5 +46,6 @@ task main()
 	{
 		startup();
 		unamedMaze();
+		//debug();
 	}
 }
