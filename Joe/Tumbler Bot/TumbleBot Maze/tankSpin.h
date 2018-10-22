@@ -8,7 +8,7 @@ void tankSpin(float targetRotation)
 	{
 		starboardDriveTrain(robotSpeed);
 		portDriveTrain((robotSpeed * -1));
-		delay(tune + 300);
+		delay(tune + 320);
 	}
 	if(targetRotation == 90)
 	{
