@@ -35,7 +35,7 @@ void unamedMaze()
 	tankSpin(-90); //make a right turn
 	backup();
 
-	segment(150); //Segment forward
+	segment(1200); //Segment forward
 }
 
 
