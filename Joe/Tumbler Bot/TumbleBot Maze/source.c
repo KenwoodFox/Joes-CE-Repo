@@ -21,7 +21,7 @@ void debug()
 
 void unamedMaze()
 {
-	segment(1250); //Segment forward
+	segment(1280); //Segment forward
 	tankSpin(90); //make a left turn
 	backup();
 
@@ -29,13 +29,13 @@ void unamedMaze()
 	tankSpin(90); //make a right turn
 	backup();
 
-	segment(1200); //Segment forward
+	segment(1300); //Segment forward
 	tankSpin(-90); //make a right turn
-	segment(680); //Segment forward
+	segment(625); //Segment forward
 	tankSpin(-90); //make a right turn
 	backup();
 
-	segment(1200); //Segment forward
+	segment(1320); //Segment forward
 }
 
 
