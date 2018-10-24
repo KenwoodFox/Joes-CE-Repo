@@ -44,7 +44,7 @@ task main()
 
 	while(true)
 	{
-		startup();
+		startup(bumpSwitch, LED);
 		unamedMaze();
 		//debug();
 	}
