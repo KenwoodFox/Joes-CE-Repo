@@ -13,39 +13,56 @@
 #include "tankSpin.h"
 #include "blink.h"
 
+void debug()
+{
+	standard(-40);
+}
+
 void seekCenter()
 {
 	int scanTime = 15;
 	int seekLocation = 0;
 
-	blink(2, LED);
-	while(SensorValue[sternSwitch] != 1) //For as long as the stern is not depressed
-	{
-		standard(-40); //go backwards at -40
+	while(SensorValue[sternSwitch] == 0) //For as long as the stern is not depressed
+	{ //go in reverse to find the wall
+		standard(30); //go backwards at -40
 		delay(scanTime); //scan every
+		standard(-30);
+		delay(250);
 	}
 
-	blink(3, LED);
-	while(SensorValue[bowSwitch] != 1) //for as long as the bow is not depressed
+	//blink(3, LED);
+	while(SensorValue[bowSwitch] == 0) //for as long as the bow is not depressed
 	{
-		standard(60);
+		standard(50);
 		delay(scanTime);
 		seekLocation++; //add a location seek number
 	}
 
 	seekLocation = seekLocation * scanTime; //returns the seekLocation in ms
-	standard(-60);
-	delay(seekLocation); //go in reverse for half the duration going forwards
+	standard(-50);
+	delay(seekLocation / 2 - 150); //go in reverse for half the duration going forwards
 	halt();
+}
+
+void spiral() //This function will drive the robot in a slowly growing spiral, teroeticly from the center of its traverse
+{
+	//for as long as neither bumpswitch is pressed, run the motors adding every time delay, a speed to the motors, that rsult in a slowly growing circle
+	while(SensorValue[bowSwitch] != 1 && SensorValue[sternSwitch] != 1)
+	{
+
+	}
 }
 
 
 task main()
 {
-	//while(true) //forever
-	//{
+	while(true) //forever
+	{
+		//debug();
+
 		startup(bumpSwitch, LED);
 		seekCenter(); //find the center of the table
 		tankSpin(-90); //turn to face the other wall
-	//}
+	}
 }
