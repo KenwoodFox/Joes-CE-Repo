@@ -11,12 +11,7 @@
 #include "drivetrain.h" //include the drivetrain header
 #include "init.h" //Include init.h, init.h also includes void startup();
 #include "tankSpin.h"
-#include "blink.h"
-
-void debug()
-{
-	standard(-40);
-}
+#include "blink.h" //blink header, for easy blonks
 
 void seekCenter()
 {
@@ -45,24 +40,34 @@ void seekCenter()
 	halt();
 }
 
-void spiral() //This function will drive the robot in a slowly growing spiral, teroeticly from the center of its traverse
+void spiral(int turnValue, int speed) //This function will drive the robot in a slowly growing spiral, teroeticly from the center of its traverse
 {
+	int floatingSpeed = 0;
 	//for as long as neither bumpswitch is pressed, run the motors adding every time delay, a speed to the motors, that rsult in a slowly growing circle
 	while(SensorValue[bowSwitch] != 1 && SensorValue[sternSwitch] != 1)
 	{
-
+		starboardDriveTrain(speed + floatingSpeed);
+		portDriveTrain(speed);
+		delay(turnValue);
+		floatingSpeed++;
 	}
 }
 
+void runWall()
+{
+	//do a thing here
+	blink(8, LED);
+}
 
 task main()
 {
 	while(true) //forever
 	{
-		//debug();
-
 		startup(bumpSwitch, LED);
 		seekCenter(); //find the center of the table
 		tankSpin(-90); //turn to face the other wall
-	}
+		seekCenter(); //find the center of the table but, this time, 90 degrees to the wall we just hit.
+		spiral(80, 40); //after finding the center of the room, or aprox, we start a winding spiral
+		runWall();
+	}//do it all over again!
 }

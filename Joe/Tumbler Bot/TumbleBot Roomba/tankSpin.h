@@ -1,6 +1,6 @@
 void tankSpin(float targetRotation)
 {
-	int tune = 1000; ///change me!
+	int tune = 800; ///change me!
 	int robotSpeed = 40;
 
 
