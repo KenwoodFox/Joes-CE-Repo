@@ -13,7 +13,6 @@
 
 #include "drivetrain.h" //include the drivetrain header
 #include "init.h" //Include init.h, init.h also includes void startup();
-#include "tankSpin.h"
 #include "blink.h" //blink header, for easy blonks
 
 #include "lineFollowing.c" //the line folowing library team 3 made!
