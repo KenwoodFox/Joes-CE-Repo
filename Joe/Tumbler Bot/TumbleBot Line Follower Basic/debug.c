@@ -22,9 +22,7 @@ task main()
 {
 	while(true)
 	{
-		startup(bumpSwitch, LED);
-		findLine(); //our first task is to find where the line is, duh, so we can follow it!
-		linePID();
-
+		string error = (SensorValue[starboardReflector] / SensorValue[portReflector]);
+		delay(10);
 	}
 }

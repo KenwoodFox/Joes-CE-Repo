@@ -18,22 +18,22 @@ void linePID() //serious maths
 
 	int speed = 25;
 
-	int starboardComp;
-	int portComp;
-
 	//as the error increases, that is, our target, masterReflector goes down, we want to increase the speed of a corrosponding motor, lets start with something basic
 
+	portDriveTrain(20);
+	starboardDriveTrain(20);
 	while (true)
 	{
-		if(sensorValue[starboardReflector] > sensorValue[masterReflector])
+		if(SensorValue[starboardReflector] > sensorValue[masterReflector]) //in general if the starboard size is on the black, run this
 		{
-			portComp++;
+			portDriveTrain(20);
+			starboardDriveTrain(30);
 		}
-		if(sensorValue[portReflector] > sensorValue[masterReflector])
+		if(SensorValue[portReflector] > sensorValue[masterReflector])
 		{
-			starboardComp++;
+			portDriveTrain(30);
+			starboardDriveTrain(20);
 		}
-		starboardDriveTrain(speed + starboardComp);
-		portDriveTrain(speed + portComp);
+		delay(10);
 	}
 }
