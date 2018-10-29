@@ -10,31 +10,20 @@ void findLine()
 	halt(); //stop motors
 }
 
-void linePID() //serious maths
+void linePID(int speed) //serious maths
 {
-//	int Kp; //proportional
-//	int Ki; //integral
-//	int Kd; //derivative
+	//int Kp = ; //proportional
+	//int Ki = ; //integral
+	//int Kd = ; //derivative
+	int error;
 
-//	int speed = 25;
+	error = SensorValue[starboardReflector] - SensorValue[portReflector];
+	// In a PID loop, the goal is to aproach the target, but not overshoot it, a good PID loop can swoosh right to the target, while many others simply just, rush past it and come back right after, this mathamtical form of position control has been around since the first basic electronic navigation systems
 
-	//as the error increases, that is, our target, masterReflector goes down, we want to increase the speed of a corrosponding motor, lets start with something basic
+	starboardDriveTrain(speed + (error / 10)); //put loop in here?
+	portDriveTrain(speed - (error / 10));
 
-	portDriveTrain(20);
-	starboardDriveTrain(20);
-
-	while (true)
-	{
-		if(SensorValue[starboardReflector] > SensorValue[masterReflector]) //in general if the starboard size is on the black, run this
-		{
-			portDriveTrain(20);
-			starboardDriveTrain(30);
-		}
-		if(SensorValue[portReflector] > SensorValue[masterReflector])
-		{
-			portDriveTrain(30);
-			starboardDriveTrain(20);
-		}
-		delay(10);
-	}
+	/* Kp * x + (Ki * x)?? Kd * x
+	* x where you are now
+	*/
 }

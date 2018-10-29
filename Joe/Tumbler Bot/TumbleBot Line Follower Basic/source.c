@@ -23,6 +23,10 @@ task main()
 	{
 		startup(bumpSwitch, LED);
 		findLine(); //our first task is to find where the line is, duh, so we can follow it!
-		linePID();
+
+		while(true)
+		{
+			linePID(20);
+		}
 	}
 }
