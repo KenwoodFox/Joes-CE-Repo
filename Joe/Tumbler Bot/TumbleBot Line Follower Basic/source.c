@@ -19,14 +19,16 @@
 
 task main()
 {
+	int threshold = 800; //The value at witch we can differ a black line from a white table, we could make this a self calibrating value!!
+	
 	while(true)
 	{
 		startup(bumpSwitch, LED);
 		findLine(); //our first task is to find where the line is, duh, so we can follow it!
 
-		while(true)
+		while(SensorValue[masterReflector] >= threshold)
 		{
-			linePID(20); //call the PID loop with a speed of 20
+			linePID(20, LED); //call the PID loop with a speed of 20
 		}
 	}
 }
