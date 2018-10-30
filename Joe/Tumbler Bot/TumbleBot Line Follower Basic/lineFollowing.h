@@ -16,7 +16,8 @@ void linePID(int speed, char statusLight) //serious maths
 	//float Ki = 0.05; //integral
 	//float Kd = 0.05; //derivative
 
-	float error = SensorValue[starboardReflector] - SensorValue[portReflector];
+	float error = SensorValue[starboardReflector] - SensorValue[portReflector]; //rescan the error
+	
 	/* In a PID loop, the goal is to aproach the target, but not overshoot it, a good PID loop can swoosh right to the target, 
 	 * while many others simply just, rush past it and come back right after, this mathamtical form of position control has been
 	 * around since the first basic electronic navigation systems
@@ -31,9 +32,9 @@ if((abs(error)) <= 100) //While the absolute value of the error (pos || neg) is 
 		 * line, this is not all that bad tbh
 		 */
 	}
-	else
+	else //In the case of being in error (Never gonna happen ik), do the following
 	{
-		SensorValue[statusLight] = false;
+		SensorValue[statusLight] = false; //turn off the light
 		portDriveTrain(speed + (Kp * error)); //Subtract or add to the value speed, the error multplied by its weight (Kp)
 		starboardDriveTrain(speed + (Kp * (error * -1))); //Subtract or add to the value speed, the error multplied by its weight (Kp)
 	}
