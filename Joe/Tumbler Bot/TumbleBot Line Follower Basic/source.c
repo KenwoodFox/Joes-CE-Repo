@@ -26,7 +26,7 @@ task main()
 
 		while(true)
 		{
-			linePID(20);
+			linePID(20); //call the PID loop with a speed of 20
 		}
 	}
 }
