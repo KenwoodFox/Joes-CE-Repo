@@ -19,8 +19,6 @@
 
 task main()
 {
-	int threshold = 800; //The value at witch we can differ a black line from a white table, we could make this a self calibrating value!!
-
 	while(true)
 	{
 		startup(bumpSwitch, LED);
