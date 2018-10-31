@@ -30,8 +30,8 @@ void linePID(int speed, char statusLight) //serious maths
 		portDriveTrain(speed); //drive at speed
 		starboardDriveTrain(speed); //drive at speed
 		/* It is well understood that the motors very often do not drive at the same rate, so its likely we'll wobble or hug one side of
-		* line, this is not all that bad tbh
-		*/
+		 * line, this is not all that bad tbh
+		 */
 	}
 	else //In the case of being in error (Never gonna happen ik), do the following
 	{
@@ -39,12 +39,19 @@ void linePID(int speed, char statusLight) //serious maths
 		starboardDriveTrain(speed + (Kp * error)); //Subtract or add to the value speed, the error multplied by its weight (Kp)
 		portDriveTrain(speed + (Kp * (error * -1))); //Subtract or add to the value speed, the error multplied by its weight (Kp)
 		/* we've multiplied the weight(kp) by error, but the error number is negative in the starboard side so that we can stray backwards
-		* and away from the line when we impact it on the corrosponding side
-		*/
+		 * and away from the line when we impact it on the corrosponding side
+		 */
 
-		if(SensorValue[masterReflector] >= threshold) //Just a test, if the value of master reflector is greater than the threshold
+		if(SensorValue[masterReflector] >= threshold && error <= 100)
 		{
 			SensorValue[LED] = true; //LED on
+			/* Just a test, if the value of master reflector is greater than the threshold AND the error is less than a number
+			 * to code, this would mean that we are on white, it knows this beacuse A; the error is very low, witch means both 
+			 * sensors port and starboard are displaying very similar values AND B; we know we're not just on the line by reading 
+			 * that the value of the master sensor is not black, so we can determine that we are not on the line. Could this code
+			 * be simplified? maybe if we look for a total error between all three, being on white would display a net error of a
+			 * low number.
+			 */
 		}
 	}
 }
