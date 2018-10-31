@@ -2,7 +2,7 @@
 
 void starboardDriveTrain(float speed) //function to drive each of the starboard wheels using value speed,
 {
-	float tune = 1.2000; //tune adjust for the variablity of the wheels
+	float tune = 1.8000; //tune adjust for the variablity of the wheels
 
 	motor[starboardFore] = (speed * tune); //Set both motors to the speed given and multiply them by thr tune value
 	motor[starboardAft] = (speed * tune);

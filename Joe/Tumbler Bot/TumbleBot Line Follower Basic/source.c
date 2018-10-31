@@ -2,6 +2,7 @@
 #pragma config(Sensor, in7,    masterReflector, sensorLineFollower)
 #pragma config(Sensor, in8,    starboardReflector, sensorLineFollower)
 #pragma config(Sensor, dgtl1,  LED,            sensorLEDtoVCC)
+#pragma config(Sensor, dgtl2,  sonar,          sensorSONAR_inch)
 #pragma config(Sensor, dgtl10, bowSwitch,      sensorTouch)
 #pragma config(Sensor, dgtl11, sternSwitch,    sensorTouch)
 #pragma config(Sensor, dgtl12, bumpSwitch,     sensorTouch)
@@ -27,7 +28,16 @@ task main()
 		//while(SensorValue[masterReflector] >= threshold)
 		while(true)
 		{
-			linePID(20, LED); //call the PID loop with a speed of 20
+			if(SensorValue[sonar] >= 4 || SensorValue[sonar] == -1)
+			{
+				linePID(18, LED); //call the PID loop with a speed of 20
+			}
+			else
+			{
+				starboardDriveTrain(SensorValue[sonar] * -8);
+				portDriveTrain(SensorValue[sonar] * -8);
+				delay(40);
+			}
 		}
 	}
 }
