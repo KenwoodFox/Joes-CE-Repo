@@ -14,7 +14,8 @@ void linePID(int speed, char statusLight) //serious maths
 {
 	float Kp = 0.012; //proportional
 	//float Ki = 0.05; //integral
-	//float Kd = 0.05; //derivative
+	//float Kd = 0.000; //derivative
+	
 	int threshold = 400; //The value at witch we can differ a black line from a white table, we could make this a self calibrating value!!
 
 	float error = SensorValue[starboardReflector] - SensorValue[portReflector]; //rescan the error
@@ -42,7 +43,7 @@ void linePID(int speed, char statusLight) //serious maths
 		 * and away from the line when we impact it on the corrosponding side
 		 */
 
-		if(SensorValue[masterReflector] >= threshold && error <= 100)
+		if(SensorValue[masterReflector] >= threshold && error <= 200)
 		{
 			SensorValue[LED] = true; //LED on
 			/* Just a test, if the value of master reflector is greater than the threshold AND the error is less than a number
