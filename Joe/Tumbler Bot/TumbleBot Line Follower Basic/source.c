@@ -27,7 +27,7 @@ task main()
 		//while(SensorValue[masterReflector] >= threshold)
 		while(true)
 		{
-			linePID(19, LED); //call the PID loop with a speed of 20
+			linePID(20, LED); //call the PID loop with a speed of 20
 		}
 	}
 }

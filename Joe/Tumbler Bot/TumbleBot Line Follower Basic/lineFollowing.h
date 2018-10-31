@@ -12,10 +12,10 @@ void findLine()
 
 void linePID(int speed, char statusLight) //serious maths
 {
-	float Kp = 0.012; //proportional
+	float Kp = 0.0118; //proportional
 	//float Ki = 0.05; //integral
 	//float Kd = 0.000; //derivative
-	
+
 	int threshold = 400; //The value at witch we can differ a black line from a white table, we could make this a self calibrating value!!
 
 	float error = SensorValue[starboardReflector] - SensorValue[portReflector]; //rescan the error
@@ -24,7 +24,7 @@ void linePID(int speed, char statusLight) //serious maths
 	* around since the first basic electronic navigation systems
 	*/
 
-	if((abs(error)) <= 10) //While the absolute value of the error (pos || neg) is less than the deadzone, do nothing, just drive ahead
+	if((abs(error)) <= 00) //While the absolute value of the error (pos || neg) is less than the deadzone, do nothing, just drive ahead
 	{
 		SensorValue[statusLight] = true; //Turn on the LED while tracking center
 		portDriveTrain(speed); //drive at speed
@@ -46,8 +46,8 @@ void linePID(int speed, char statusLight) //serious maths
 		{
 			SensorValue[LED] = true; //LED on
 			/* Just a test, if the value of master reflector is greater than the threshold AND the error is less than a number
-			 * to code, this would mean that we are on white, it knows this beacuse A; the error is very low, witch means both 
-			 * sensors port and starboard are displaying very similar values AND B; we know we're not just on the line by reading 
+			 * to code, this would mean that we are on white, it knows this beacuse A; the error is very low, witch means both
+			 * sensors port and starboard are displaying very similar values AND B; we know we're not just on the line by reading
 			 * that the value of the master sensor is not black, so we can determine that we are not on the line. Could this code
 			 * be simplified? maybe if we look for a total error between all three, being on white would display a net error of a
 			 * low number.
