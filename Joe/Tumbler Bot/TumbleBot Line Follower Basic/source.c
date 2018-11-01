@@ -2,8 +2,7 @@
 #pragma config(Sensor, in7,    masterReflector, sensorLineFollower)
 #pragma config(Sensor, in8,    starboardReflector, sensorLineFollower)
 #pragma config(Sensor, dgtl1,  LED,            sensorLEDtoVCC)
-#pragma config(Sensor, dgtl2,  sonar,          sensorSONAR_inch)
-#pragma config(Sensor, dgtl10, bowSwitch,      sensorTouch)
+#pragma config(Sensor, dgtl9,  sonar,          sensorSONAR_inch)
 #pragma config(Sensor, dgtl11, sternSwitch,    sensorTouch)
 #pragma config(Sensor, dgtl12, bumpSwitch,     sensorTouch)
 #pragma config(Motor,  port1,           starboardAft,  tmotorVex393_HBridge, openLoop, reversed)
@@ -18,6 +17,9 @@
 
 #include "lineFollowing.h" //the line folowing library team 3 made!
 
+int  threshold = 2400;
+int var = 0;
+
 task main()
 {
 	while(true)
@@ -26,17 +28,28 @@ task main()
 		findLine(); //our first task is to find where the line is, duh, so we can follow it!
 
 		//while(SensorValue[masterReflector] >= threshold)
-		while(true)
+
+		while(true) //keep running this loop
 		{
-			if(SensorValue[sonar] >= 4 || SensorValue[sonar] == -1)
+			if(SensorValue[sonar] >= 4 || SensorValue[sonar] == -1) //if we're not in sonar range, keep running the line PID
 			{
-				linePID(18, LED); //call the PID loop with a speed of 20
-			}
-			else
-			{
-				starboardDriveTrain(SensorValue[sonar] * -8);
-				portDriveTrain(SensorValue[sonar] * -8);
-				delay(40);
+				if(SensorValue[masterReflector] > threshold || SensorValue[starboardReflector] > threshold || SensorValue[portReflector] > threshold)
+				{
+					while(var < 100)
+					{
+						linePID(21, LED, 0.0078); //run the PID loop with format (SPEED, STATUSLIGHT, P, I, D)
+						var++;
+					}
+					var = 0;
+				}
+				else //otherwise
+				{
+					//starboardDriveTrain(SensorValue[sonar] * -12); //reverse using a magic P value
+					//portDriveTrain(SensorValue[sonar] * -12);
+					standard(-15);
+					delay(150);
+					SensorValue[LED] = true;
+				}
 			}
 		}
 	}

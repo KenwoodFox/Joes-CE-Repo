@@ -10,11 +10,8 @@ void findLine()
 	halt(); //stop motors
 }
 
-void linePID(int speed, char statusLight) //serious maths
+void linePID(int speed, char statusLight, float Kp, /*proportional*/ /*float Ki, /*integral*/ /*float Kd, /*derivative*/) //serious maths
 {
-	float Kp = 0.0118; //proportional
-	//float Ki = 0.05; //integral
-	//float Kd = 0.000; //derivative
 
 	int threshold = 400; //The value at witch we can differ a black line from a white table, we could make this a self calibrating value!!
 
@@ -24,7 +21,7 @@ void linePID(int speed, char statusLight) //serious maths
 	* around since the first basic electronic navigation systems
 	*/
 
-	if((abs(error)) <= 00) //While the absolute value of the error (pos || neg) is less than the deadzone, do nothing, just drive ahead
+	if((abs(error)) <= 10) //While the absolute value of the error (pos || neg) is less than the deadzone, do nothing, just drive ahead
 	{
 		SensorValue[statusLight] = true; //Turn on the LED while tracking center
 		portDriveTrain(speed); //drive at speed
