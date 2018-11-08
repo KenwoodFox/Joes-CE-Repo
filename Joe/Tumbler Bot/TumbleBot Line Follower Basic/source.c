@@ -18,6 +18,18 @@
 int  threshold = 2400;
 int var = 0;
 
+void findLine()
+{
+	int lowerThreshold = 1200; //thresholdbetween light and dark
+
+	while(SensorValue[masterReflector] < lowerThreshold)
+	{
+		standard(27); //go forward at 40
+		delay(10); //wait 10ms before checking again
+	} //this loop will exit once the robot finds the line!
+	halt(); //stop motors
+}
+
 task main()
 {
 	while(true)
@@ -35,7 +47,7 @@ task main()
 				{
 					while(var < 100)
 					{
-						linePID(21, LED, 0.0078); //run the PID loop with format (SPEED, STATUSLIGHT, P, I, D)
+						linePID(starboardReflector, masterReflector, portReflector, starboardAft, portAft, LED, 21, 0.0078); //run the PID loop with format (SPEED, STATUSLIGHT, P, I, D)
 						var++;
 					}
 					var = 0;
