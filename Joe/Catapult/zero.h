@@ -2,11 +2,11 @@
  * all the way to the top, ready to fire
  */
 
-void zero()
+void zero(char limitMax, char servoMotor)
 {
-	while(SensorValue[maxUp] == 0)
+	while(SensorValue[limitMax] == 0)
 	{
-		motor[servo] = 70;
+		motor[servoMotor] = 70;
 		delay(10);
 	}
 }
